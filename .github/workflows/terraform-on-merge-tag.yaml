@@ -1,0 +1,14 @@
+name: Terraform Create Tag
+
+on:
+  pull_request:
+    types:
+      - closed
+    branches:
+      - main
+
+jobs:
+   terraform-create-tag:
+      permissions:
+        contents: write
+      uses: workleap/wl-reusable-workflows/.github/workflows/terraform-create-git-tag.yml@main

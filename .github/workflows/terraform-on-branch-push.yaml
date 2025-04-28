@@ -1,0 +1,15 @@
+name: Terraform tools on Branch Push
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: write
+
+jobs:
+   terraform-branch-push:
+      uses: workleap/wl-reusable-workflows/.github/workflows/terraform-on-branch-push.yml@main
+      permissions:
+        id-token: write
+        contents: write
+      secrets: inherit

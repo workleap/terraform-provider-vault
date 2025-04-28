@@ -1,0 +1,16 @@
+name: Jira
+
+on:
+  pull_request:
+    branches: [main]
+    paths-ignore: [".cortex/**/*", ".md"]
+
+jobs:
+  call-workflow-jira:
+    uses: workleap/wl-reusable-workflows/.github/workflows/reusable-jira-workflow.yml@main
+    with:
+      branch_name: ${{ github.head_ref }}
+    permissions:
+      id-token: write
+      contents: read
+    secrets: inherit
